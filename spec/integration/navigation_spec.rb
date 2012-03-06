@@ -1,8 +1,6 @@
 require 'spec_helper'
 
-describe 'Kuhsaft' do
-
-  include Capybara
+describe Kuhsaft do
 
   describe 'Dummy' do
     it 'should be a valid app' do
@@ -10,10 +8,11 @@ describe 'Kuhsaft' do
     end
   end
 
-  context 'when the engine is mounted on /admin' do
+  describe Kuhsaft::DashboardController do
 
     it 'creates a route to /admin' do
-      get("/admin").should route_to("dashboard#index")
+      { :get => "/admin" }.should route_to("dashboard#index")
+      #visit '/admin'
     end
 
     it 'shows that i am in kuhsaft'

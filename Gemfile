@@ -1,13 +1,22 @@
 source "http://rubygems.org"
 
-gem "rails"
-gem "capybara", ">= 0.4.0"
-gem "sqlite3"
+# Declare your gem's dependencies in kuhsaft.gemspec.
+# Bundler will treat runtime dependencies like base dependencies, and
+# development dependencies will be added by default to the :development group.
+gemspec
+
+# jquery-rails is used by the dummy application
+gem "jquery-rails"
 gem 'rspec'
 gem 'rspec-rails'
 gem 'guard'
 gem 'guard-rspec'
+gem 'capybara'
 
-# To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
-# gem 'ruby-debug'
-# gem 'ruby-debug19'
+# Declare any dependencies that are still in development here instead of in
+# your gemspec. These might include edge Rails or gems from your path or
+# Git. Remember to move these dependencies to your gemspec before releasing
+# your gem to rubygems.org.
+
+# To use debugger
+# gem 'ruby-debug19', :require => 'ruby-debug'
