@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name        = "kuhsaft"
-  s.version     = "0.0.1"
+  s.version     = "0.4.0.alpha"
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Immanuel Häussermann", "Felipe Kaufmann", "Phil Schilter", "Marco Ribi"]
   s.email       = "developers@screenconcept.ch"
