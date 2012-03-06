@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-gem "rails", "3.0.12"
+gem "rails"
 gem "capybara", ">= 0.4.0"
 gem "sqlite3"
 gem 'rspec'
