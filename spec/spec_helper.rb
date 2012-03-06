@@ -1,6 +1,7 @@
 require File.expand_path("../dummy/config/environment.rb",  __FILE__)
 
-require 'rspec'
+require 'rspec-rails'
+require "capybara"
 
 RSpec.configure do |config|
   require 'rspec/expectations'
