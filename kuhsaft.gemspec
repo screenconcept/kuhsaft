@@ -1,6 +1,5 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "kuhsaft/version"
 
 Gem::Specification.new do |s|
   s.name        = "kuhsaft"
@@ -19,6 +18,6 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  #s.add_development_dependency 'rspec-rails', '>= 2.6'
+  s.add_development_dependency 'rspec'
   #s.add_dependency 'acts-as-taggable-on', '>= 2.0.6'
 end
