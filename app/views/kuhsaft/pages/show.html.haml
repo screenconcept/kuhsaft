@@ -1,3 +1,0 @@
-- unless @page.blank?
-  - @page.page_parts.each do |pp|
-    = render :partial => pp.show_partial_path, :locals => { :page_part => pp }
