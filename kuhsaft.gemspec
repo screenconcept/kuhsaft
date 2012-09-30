@@ -19,5 +19,6 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_development_dependency 'rspec'
-  #s.add_dependency 'acts-as-taggable-on', '>= 2.0.6'
+  s.add_development_dependency 'pry'
+  s.add_dependency 'rails'
 end
