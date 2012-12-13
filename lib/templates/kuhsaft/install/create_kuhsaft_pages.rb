@@ -1,14 +1,21 @@
 class CreateKuhsaftPages < ActiveRecord::Migration
-  def self.up
-    create_table :pages do |t|
+
+  def change
+    create_table :kuhsaft_pages do |t|
       t.integer :position
       t.integer :parent_id
+      t.string :title_en
+      t.string :slug_en
+      t.string :keywords_en
+      t.text :description_en
+      t.text :body_en
+      t.integer :published
       t.references :page
+      t.text :url_en
+      t.string :page_type
+      t.text :fulltext_en
       t.timestamps
     end
   end
-  
-  def self.down
-    drop_table :pages
-  end  
+
 end

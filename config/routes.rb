@@ -1,13 +1,8 @@
-Rails.application.routes.draw do
-  scope :module => :kuhsaft do
-    scope ':locale' do
-      namespace :cms do
-        resources :pages do
-          resources :page_parts
-        end
-        resources :assets
-      end
-    end
+Kuhsaft::Engine.routes.draw do
+  scope :module => :cms do
+    resources :pages
+    resources :bricks, :except => [:new, :edit, :index]
+    resources :assets
   end
-  match '/:locale/*url' => 'kuhsaft/pages#show'
+  #match '/:locale/*url' => 'pages#show', :as => :kuhsaft_page
 end
