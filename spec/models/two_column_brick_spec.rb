@@ -12,9 +12,15 @@ describe Kuhsaft::TwoColumnBrick do
     end
   end
 
-  describe '#user_can_change_persisted?' do
+  describe '#user_can_delete?' do
     it 'returns true' do
-      two_column_brick.user_can_change_persisted?.should be_true
+      two_column_brick.user_can_delete?.should be_true
+    end
+  end
+
+  describe '#user_can_save?' do
+    it 'returns true' do
+      two_column_brick.user_can_save?.should be_true
     end
   end
 
@@ -60,7 +66,7 @@ describe Kuhsaft::TwoColumnBrick do
 
   describe '#to_style_class' do
     it 'adds the row class to the default styles' do
-      Kuhsaft::TwoColumnBrick.new.to_style_class.should == 'kuhsaft-two-column-brick row'
+      Kuhsaft::TwoColumnBrick.new.to_style_class.should == 'kuhsaft-two-column-brick row-fluid'
     end
   end
 end

@@ -13,7 +13,11 @@ module Kuhsaft
       false
     end
 
-    def user_can_change_persisted?
+    def user_can_delete?
+      true
+    end
+
+    def user_can_save?
       true
     end
 
@@ -33,7 +37,7 @@ module Kuhsaft
     end
 
     def to_style_class
-      [super, 'row'].join(' ')
+      [super, 'row-fluid'].join(' ')
     end
 
     private

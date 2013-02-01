@@ -55,12 +55,6 @@ describe Kuhsaft::Brick do
     end
   end
 
-  describe '#render_as_horizontal_form?' do
-    it 'returns true by default' do
-      Kuhsaft::Brick.new.render_as_horizontal_form?.should be_true
-    end
-  end
-
   describe '#parents' do
     it 'returns the chain of parents' do
       item1, item2, item3 = mock, mock, Kuhsaft::Brick.new
@@ -99,6 +93,18 @@ describe Kuhsaft::Brick do
       brick = Kuhsaft::TextBrick.new
       brick.stub(:id).and_return(104)
       brick.to_style_id.should == 'kuhsaft-text-brick-104'
+    end
+  end
+
+  describe '#backend_label' do
+    it 'returns the name of the brick' do
+      brick =  Kuhsaft::TextBrick.new
+      brick.backend_label.should == 'Text'
+    end
+
+    context 'with the parenthesis option given' do
+      brick = Kuhsaft::TextBrick.new
+      brick.backend_label(:parenthesis => true).should == '(Text)'
     end
   end
 end

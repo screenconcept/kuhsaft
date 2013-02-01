@@ -40,15 +40,6 @@ module Kuhsaft
       path.join '/'
     end
 
-    #
-    # return true: brick form labels/inputs render horizontally
-    # return false: brick form labels/inputs render vertically
-    # (see: http://twitter.github.com/bootstrap/base-css.html#forms)
-    #
-    def render_as_horizontal_form?
-      true
-    end
-
     def parents
       p = []
       parent = brick_list.presence
@@ -80,6 +71,15 @@ module Kuhsaft
     # Returns a unique DOM id suitable for use in the frontend
     def to_style_id
       "#{self.class.to_s.underscore.dasherize.gsub('/', '-')}-#{id}"
+    end
+
+    def backend_label(options = {})
+      label = self.class.model_name.human
+      if options[:parenthesis] == true
+        "(#{label})"
+      else
+        label
+      end
     end
   end
 end
