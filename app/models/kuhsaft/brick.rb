@@ -16,7 +16,7 @@ module Kuhsaft
                     :brick_list_type,
                     :display_styles
 
-    before_validation :set_locale
+    before_save :set_locale
     before_validation :set_position
 
     validates :locale,
@@ -65,7 +65,6 @@ module Kuhsaft
     end
 
     def set_locale
-      binding.pry
       self.locale = self.locale.presence || I18n.locale
     end
 
