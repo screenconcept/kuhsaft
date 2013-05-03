@@ -6,14 +6,17 @@ describe Kuhsaft::Brick do
   end
 
   describe '#valid?' do
-    it 'sets a default locale' do
-      brick.should_receive(:set_locale)
-      brick.valid?
-    end
-
     it 'sets a default position' do
       brick.should_receive(:set_position)
       brick.valid?
+    end
+  end
+
+  describe '#before_save' do
+    it 'sets a default locale' do
+      brick.stub!(:valid?).and_return(true)
+      brick.should_receive(:set_locale).and_return(false)
+      brick.save
     end
   end
 

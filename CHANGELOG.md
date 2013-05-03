@@ -1,3 +1,9 @@
+## hotfix/brick_translation
+
+- remove "localized"-method call from default scope (cause this will not be actualized when locale is changed)
+- add the removed "localized"-method call to view for brick_list in kuhsaft form
+- use "set_locale"-method as before_save callback instead of before_validation cause in the controller in the create method the validation is skiped and then there are records without a locale in the database
+
 ## features/settings_redirect_pages
 
 - Do not show tab "Inhalt" when editing a redirect page
