@@ -1,6 +1,9 @@
 ## 1.5.0 - <date>
 
 - Postgres fulltext search
+- Allow request with empty url splat to be handled by kuhsaft router
+  - Allows root etries in host app: `root :to => 'kuhsaft/pages#show'`
+  - HomeConroller not needed anymore
 
 ## 1.4.1 - 2013-03-05
 
