@@ -10,16 +10,24 @@ describe Kuhsaft::Page do
       create :page
     end
 
+    let :attr do
+      Kuhsaft::Page.locale_attr :fulltext
+    end
+
     it 'should find any containing the search term' do
-      Kuhsaft::Page.search('lorem').should have_at_least(0).items
+      Kuhsaft::Page.search(attr => 'lorem').should have_at_least(0).items
     end
 
     it 'should find with "English Title"' do
-      Kuhsaft::Page.search('English Title').should have_at_least(1).item
+      Kuhsaft::Page.search(attr => 'English Title').should have_at_least(1).item
     end
 
     it 'should only find published results' do
-      Kuhsaft::Page.search('English Title').should be_all { |p| p.published? == true }
+      Kuhsaft::Page.search(attr => 'English Title').should be_all { |p| p.published? == true }
+    end
+
+    it 'should find by using the old api' do
+      Kuhsaft::Page.search('English').should == Kuhsaft::Page.search(attr => 'English')
     end
   end
 
@@ -254,8 +262,8 @@ describe Kuhsaft::Page do
     end
 
     context 'when it is a redirect? page' do
-      it 'returns the plain url' do
-        page = create(:page, :page_type => Kuhsaft::PageType::REDIRECT, :url => '/en/news')
+      it 'returns the absolute url' do
+        page = create(:page, :page_type => Kuhsaft::PageType::REDIRECT, :redirect_url => 'en/references', :slug => 'news')
         page.link.should eq('/en/news')
       end
     end
@@ -322,6 +330,15 @@ describe Kuhsaft::Page do
       it 'converts all data to strings' do
         expect { page.collect_fulltext }.to_not raise_error
       end
+    end
+  end
+
+  describe '#before_validation' do
+    it 'generates url automatically' do
+      page = Kuhsaft::Page.new :slug => 'slug'
+      page.url.should be_nil
+      page.valid?
+      page.url.should be_present
     end
   end
 end

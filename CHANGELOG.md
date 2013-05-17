@@ -1,3 +1,11 @@
+## 1.5.0 - <date>
+
+- Postgres fulltext search
+- Allow request with empty url splat to be handled by kuhsaft router
+  - Allows root etries in host app: `root :to => 'kuhsaft/pages#show'`
+  - HomeConroller not needed anymore
+- Implement real redirect in pages_controller for redirect pages
+
 ## 1.4.2 - 2013-03-14
 
 - Fix page caching for localized pages by adding locale as cahe key
@@ -17,9 +25,6 @@
   - in Backend, always pass around content_locale param, to keep the correct locale set
   - remove before_validate callback: obsoleted because we pass locale around in params
   - use lambda for default scope as well, switch to new syntax for lambda
-
-## features/settings_redirect_pages
-
 - Do not show tab "Inhalt" when editing a redirect page
 
 ## 1.3.1 - 2013-04-12
