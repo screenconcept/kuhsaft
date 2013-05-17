@@ -1,4 +1,4 @@
-## features/search
+## 1.5.0 - <date>
 
 - Postgres fulltext search
 
