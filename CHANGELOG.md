@@ -1,3 +1,7 @@
+## features/optimize_redirect_page
+
+- Implement real redirect in pages_controller for redirect pages
+
 ## 1.4.2 - 2013-03-14
 
 - Fix page caching for localized pages by adding locale as cahe key
