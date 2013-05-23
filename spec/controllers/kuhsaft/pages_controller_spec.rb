@@ -3,6 +3,22 @@ require 'spec_helper'
 describe Kuhsaft::PagesController do
   subject { described_class }
 
+  describe '#index' do
+    before do
+      @pages = [
+        create(:page, :title => 'foo'),
+        create(:page, :title => 'bar')
+      ]
+    end
+
+    context 'with search parameter' do
+      it 'assigns the search results' do
+        get(:index, { :use_route => :kuhsaft, :search => 'foo' })
+        assigns(:pages).should eq([@pages.first])
+      end
+    end
+  end
+
   describe '#show' do
     context 'without url' do
       before do
