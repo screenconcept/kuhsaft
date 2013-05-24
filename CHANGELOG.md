@@ -1,3 +1,7 @@
+## features/optimize_redirect_page
+
+- Implement real redirect in pages_controller for redirect pages
+
 ## 1.5.0 - 2013-05-22
 
 - Allow request with empty url splat to be handled by kuhsaft router
