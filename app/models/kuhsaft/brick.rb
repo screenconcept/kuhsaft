@@ -29,6 +29,12 @@ module Kuhsaft
       self.position ||= has_siblings? ? brick_list.bricks.maximum(:position).to_i + 1 : 1
     end
 
+    after_save do
+      # TODO: replace callback
+      brick_list.update_fulltext
+      brick_list.save!
+    end
+
     def to_edit_partial_path
       path = self.to_partial_path.split '/'
       path << 'edit'

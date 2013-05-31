@@ -1,3 +1,7 @@
+## features/search
+
+- Postgres fulltext search
+
 ## 1.6.0 - 2013-05-27
 
 - Implement real redirect in pages_controller for redirect pages
