@@ -13,6 +13,6 @@ Kuhsaft::Engine.routes.draw do
     resources :pages,
       :only => [:index],
       :defaults => { :locale => I18n.locale }
-    match '(*url)' => 'pages#show', :as => :page
+    get '(*url)' => 'pages#show', :as => :page
   end
 end
